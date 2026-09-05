@@ -1,0 +1,16 @@
+# Local runtime data (users DB + save slots) — never commit
+data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# The game bundle is built from the ISO via game/package.py; do not commit
+# copyrighted game assets.
+game/xcom-jsdos
+
+# Generated build artifacts
+game/xcom-jsdos.zip
+static/js-dos/wdosbox.wasm

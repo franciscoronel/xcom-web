@@ -1,0 +1,8 @@
+# Build context exclusions
+__pycache__/
+*.pyc
+.venv/
+venv/
+.git/
+data/
+*.md

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X-COM Web</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/js-dos/js-dos.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Login / register -->
+    <div id="auth-screen" class="screen">
+      <div class="panel">
+        <h1>X-COM: Apocalypse</h1>
+        <p class="sub">Multi-user DOS game host</p>
+        <div id="auth-form">
+          <input id="username" type="text" placeholder="Username" autocomplete="username">
+          <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+          <div class="btn-row">
+            <button id="login-btn" class="btn btn-primary">Login</button>
+            <button id="register-btn" class="btn">Register</button>
+          </div>
+          <p id="auth-msg" class="msg"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game -->
+    <div id="game-screen" class="screen hidden">
+      <header>
+        <h1>X-COM: Apocalypse</h1>
+        <div class="toolbar">
+          <span id="who" class="who"></span>
+          <button id="save-btn" class="btn btn-primary">Save to Slot</button>
+          <button id="load-btn" class="btn">Load Slot</button>
+          <button id="logout-btn" class="btn">Logout</button>
+        </div>
+      </header>
+      <main class="game-main">
+        <div id="jsdos-container">
+          <div id="jsdos-root" class="jsdos-root"></div>
+        </div>
+        <!-- Slots panel -->
+        <aside id="slots-panel" class="slots-panel">
+          <h2>Save Slots</h2>
+          <div id="slots-list"></div>
+          <p id="slots-msg" class="msg"></p>
+        </aside>
+        <!-- Debug panel on the right -->
+        <aside id="debug-panel" class="debug-panel">
+          <h2>Debug Console</h2>
+          <div id="debug-output"></div>
+          <button id="clear-debug-btn" class="btn" onclick="clearDebug()">Clear</button>
+        </aside>
+      </main>
+    </div>
+  </div>
+  <script src="/static/js-dos/js-dos.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

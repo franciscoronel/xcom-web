@@ -1,0 +1,281 @@
+:root {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #2f81f7;
+  --accent-hover: #1f6feb;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Segoe', 'Microsoft Sans Serif', sans-serif;
+}
+
+/* App wrapper */
+#app {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  height: 100vh;
+  gap: 0;
+}
+
+/* Game screen: right column has slots panel + debug panel */
+#app.game-active {
+  grid-template-columns: 1fr 730px;
+}
+
+/* Game main area — three columns: game, slots, debug */
+.game-main {
+  display: grid;
+  grid-template-columns: 1fr 300px 430px;
+  flex: 1;
+}
+
+/* Panel (login/register) */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: 28px;
+  color: var(--accent);
+}
+
+.panel .sub {
+  color: var(--muted);
+  margin: 4px 0 20px;
+}
+
+/* Inputs */
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: var(--accent);
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: var(--border);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+/* Messages */
+.msg {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* Screens */
+.screen {
+  grid-area: 1 / 1 -1 / 2;
+  overflow: auto;
+}
+
+.screen.hidden {
+  display: none;
+}
+
+/* Header (game screen) */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--accent);
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+}
+
+.who {
+  color: var(--accent);
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+/* Slots panel */
+#slots-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+#slots-panel h2 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+#slots-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+#slots-list .slot-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+#slots-list .slot-row .slot-num {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* Debug panel */
+#debug-panel {
+  background: #0a0a0a;
+  border-left: 1px solid var(--border);
+  padding: 16px;
+  overflow: auto;
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+#debug-panel h2 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+#debug-output {
+  background: #1a1a1a;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 11px;
+  color: #e6edf3;
+  max-height: 400px;
+  overflow: auto;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+#debug-output .log-entry {
+  border-bottom: 1px solid var(--border);
+  padding: 2px 0;
+}
+
+#debug-output .log-entry.error {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+#debug-output .log-entry.info {
+  color: #51afef;
+}
+
+#debug-output .log-entry.warn {
+  color: #ffc000;
+}
+
+/* js-dos container */
+#jsdos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+#jsdos-root {
+  width: 100%;
+  height: 100%;
+}
+
+/* jsdos root (container) */
+.jsdos-root {
+  width: 100%;
+  height: 100%;
+}
+
+/* jsdos loader */
+.jsdos-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jsdos-loader .loader-text {
+  font-size: 16px;
+  color: var(--accent);
+}
+
+/* jsdos canvas */
+.jsdos-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* jsdos container */
+.jsdos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
