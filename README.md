@@ -67,6 +67,8 @@ docker run -d --name hermes_xcom -p 8000:8000 -v /opt/data/xcom:/app/data xcom-w
 - CD audio (the 296 MB `MUSIC` track) is not bundled; the game plays without
   CD music.
 - In-memory bearer tokens reset on container restart (users just log in again).
+- `dosbox.conf` requires `cycles=3000` (pentium-level timing) — lower values
+  cause the game to hang after the intro logo.
 
 ## Copyright
 The game data (`game/xcom.jsdos`) is not committed — it is built locally from
